@@ -1,4 +1,4 @@
-# NHS32 Experimentation
+# Reading and Writing NFC message using an NHS32 and a RC522
 1) Installation of the NSH3152 IDE
 2) Developement of the code for writing using the RC522 (Examples/MFRC522/DumpInfo.ino)
 3) Developement of the code for reading using the RC522 https://create.arduino.cc/editor/LogMaker360/ac6be449-9893-4e30-9ce5-7733cfb8a7ef/preview Write_2_NFC_arduino_code.ino
