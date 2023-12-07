@@ -23,11 +23,18 @@ void loop() {
   if ( ! mfrc522.PICC_IsNewCardPresent()) {return;}
   if ( ! mfrc522.PICC_ReadCardSerial()) {return;}
   Serial.setTimeout(20000L);
-  byte pageNumber = 8;
-  byte buffr[] = {
-    0x6,0x6,0x6,0x6
-  };
+  byte pageNumber = 4;
+  byte dataValue = 0; //inseted into the 4th page
 
+  if (Serial.available() > 0) {
+    // read the incoming byte:
+    dataValue = Serial.parseInt();
+
+    // say what you got:
+    Serial.print("I received: ");
+    Serial.println(dataValue);
+  }
+  byte buffr[] = {dataValue,0x0,0x0,0x0};
   mfrc522.MIFARE_Write(pageNumber, buffr, 16);
 
   Serial.println(" ");
