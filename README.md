@@ -8,3 +8,4 @@
 7) Turning ON an external LED 
 8) Charging the NHS3152 using an NFC https://community.nxp.com/t5/Other-NXP-Products/NHS3152-loading-buffer-cap-when-NFC-powered/m-p/1764968#M20279
 9) Launching a programm on the NHS3152 from an Adroid Smartphone https://community.nxp.com/t5/Other-NXP-Products/NHS31xx-NFC-Program-Loader-App-Download-Error-during-flashing/m-p/1594023
+10) Detecting read and write on the nfc shared memory https://community.nxp.com/t5/Other-NXP-Products/NFC-interrupt-for-detecting-read-write-from-a-reader/m-p/1770738/emcs_t/S2h8ZW1haWx8dG9waWNfc3Vic2NyaXB0aW9ufExQVjY0NjREVlpCWkNKfDE3NzA3Mzh8U1VCU0NSSVBUSU9OU3xoSw#M20390 
