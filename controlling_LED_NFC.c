@@ -6,7 +6,7 @@ void setIntensity(int, int, char);
 
 int main(void)
 {
-	Board_Init();
+Board_Init();
     Chip_NFC_Init(NSS_NFC);
 
 	NSS_NFC->CFG = 0;
