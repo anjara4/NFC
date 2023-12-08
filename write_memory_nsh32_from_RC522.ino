@@ -29,15 +29,13 @@ void loop() {
   if (Serial.available() > 0) {
     // read the incoming byte:
     dataValue = Serial.parseInt();
-
+    if(dataValue == 9)  printData();
     // say what you got:
-    Serial.print("I received: ");
-    Serial.println(dataValue);
+    if(dataValue > 0){
+      Serial.print("I received: ");
+      Serial.println(dataValue);
+      byte buffr[] = {dataValue,0x0,0x0,0x0};
+      mfrc522.MIFARE_Write(pageNumber, buffr, 16); 
+    }
   }
-  byte buffr[] = {dataValue,0x0,0x0,0x0};
-  mfrc522.MIFARE_Write(pageNumber, buffr, 16);
-
-  Serial.println(" ");
-  mfrc522.PICC_HaltA();
-  mfrc522.PCD_StopCrypto1();
 }
