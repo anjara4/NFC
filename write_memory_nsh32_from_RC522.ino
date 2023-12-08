@@ -18,20 +18,26 @@ void setup() {
   mfrc522.PCD_Init();        // Init MFRC522 card
   Serial.println(F("Write personal data NHS3152"));
 }
+
 void loop() {
   // Reset the loop if no new card present on the sensor/reader. This saves the entire process when idle.
   if ( ! mfrc522.PICC_IsNewCardPresent()) {return;}
   if ( ! mfrc522.PICC_ReadCardSerial()) {return;}
   Serial.setTimeout(20000L);
+  writingNFC();
+}
+
+void writingNFC(){
   byte pageNumber = 4;
-  byte dataValue = 0; //inseted into the 4th page
+  byte dataValue = 1;
 
   if (Serial.available() > 0) {
-    // read the incoming byte:
     dataValue = Serial.parseInt();
-    if(dataValue == 9)  printData();
-    // say what you got:
+    
     if(dataValue > 0){
+      if(dataValue == 9) {
+        mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
+      }
       Serial.print("I received: ");
       Serial.println(dataValue);
       byte buffr[] = {dataValue,0x0,0x0,0x0};
@@ -39,3 +45,4 @@ void loop() {
     }
   }
 }
+
