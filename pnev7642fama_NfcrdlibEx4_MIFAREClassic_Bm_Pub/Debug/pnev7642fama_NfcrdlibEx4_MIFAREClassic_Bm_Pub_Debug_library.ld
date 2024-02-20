@@ -5,7 +5,7 @@
  * Generated linker script file for PN7642
  * Created from library.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.9.0 [Build 2144] [2024-01-05] on 20 févr. 2024, 11:03:32
+ * MCUXpresso IDE v11.9.0 [Build 2144] [2024-01-05] on 20 févr. 2024, 12:48:02
  */
 
 GROUP (
