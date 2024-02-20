@@ -1,0 +1,13 @@
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:92:19:phacDiscLoop_Sw_Int_Apply_PTGT	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:194:19:phacDiscLoop_Sw_Int_EmvcoRfFieldReset	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:213:12:phacDiscLoop_Sw_Int_ListenMode	16	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:271:12:phacDiscLoop_Sw_Int_ActivePollMode	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:426:12:phacDiscLoop_Sw_Int_PollMode	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:518:12:phacDiscLoop_Sw_Int_EmvcoRemovalProcedure	16	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:626:12:phacDiscLoop_Sw_Int_TechDetectActivity	32	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:766:12:phacDiscLoop_Sw_Int_EmvcoTechDetectActivity	40	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:948:12:phacDiscLoop_Sw_Int_ColsnReslnActivity	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:987:12:phacDiscLoop_Sw_Int_ActivateDevice	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:1019:12:phacDiscLoop_Sw_Int_RfcaOff_FieldOn	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:1038:12:phacDiscLoop_Sw_Int_FieldOn	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c:1064:9:phacDiscLoop_Sw_Int_IsValidPollStatus	16	static

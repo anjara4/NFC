@@ -1,0 +1,3 @@
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int_A.c:50:12:phacDiscLoop_Sw_DetTechTypeA	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int_A.c:102:12:phacDiscLoop_Sw_Int_CollisionResolutionA	48	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int_A.c:490:12:phacDiscLoop_Sw_Int_ActivateA	64	static

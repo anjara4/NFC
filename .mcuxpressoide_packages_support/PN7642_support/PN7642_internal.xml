@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE infoList
+  SYSTEM "crt_infolist.dtd">
+<infoList vendor="NXP">
+   <info name="PN7642" chip="PN7642">
+      <chip>
+         <name>PN7642</name>
+         <family>PN76</family>
+         <vendor>NXP</vendor>
+         <memory id="Flash"
+                 type="Flash"
+                 size="180"
+                 is_ro="true"
+                 can_program="true"/>
+         <memory id="RAM" type="RAM" size="22"/>
+         <memoryInstance id="PROGRAM_FLASH"
+                         derived_from="Flash"
+                         location="0x00208000"
+                         size="0x0002d000"
+                         driver="PN7642.cfx"/>
+         <memoryInstance id="SRAM"
+                         derived_from="RAM"
+                         location="0x20003000"
+                         size="0x00005000"/>
+         <memoryInstance id="AO_SRAM"
+                         derived_from="RAM"
+                         location="0x20008000"
+                         size="0x00000600"/>
+      </chip>
+      <processor>
+         <name gcc_name="cortex-m33-nodsp">Cortex-M33 (No DSP)</name>
+         <family>Cortex-M</family>
+      </processor>
+   </info>
+</infoList>

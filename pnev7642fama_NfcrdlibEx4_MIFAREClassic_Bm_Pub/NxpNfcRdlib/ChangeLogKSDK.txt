@@ -1,0 +1,25 @@
+/*!
+@page middleware_log Middleware Change Log
+
+@section nxpnfcrdlib NFC reader library for MCUXpresso SDK
+  The current driver version is 7.09.00.
+
+  - 07.09.00
+	- PAL I14443-4 component updated to handle FWT(TEMP) correctly as per the ISO/IEC 14443-4 specification.
+	- Example and Compliance applications are updated to avoid E2PROM write multiple times during application boot in case of Autocoll configuration..
+	- PAL Sli15693, AL ICode and Discovery loop components updated to handle additional delta timeout (DELTATV,POLL) based on library mode(ISO/NFC)
+  - 07.08.00
+	- NFC Forum DTA Compliance application included in PSP
+	- Transport Keys are added based on 12NC part numbers for PN7642 and PN7640 NFC Controllers
+	- Required Crypto Sym configurations are enabled in NfcLib for DNA products.
+	- Update supported FreeRTOS kernel version in NxpNfcRdlib from v10.4.3 to v10.5.0
+	- NxpNfcRdLib updated as per NFC Forum CR13 Card Emulation Device class.
+  - 07.06.00
+	- Updated phKeyStore with mbdetls
+  - 07.00.01
+    - Updated 14443p4/18092 modules to use the timer service provide by porting layer.
+
+  - 07.00.00
+    - Initial version.
+
+*/

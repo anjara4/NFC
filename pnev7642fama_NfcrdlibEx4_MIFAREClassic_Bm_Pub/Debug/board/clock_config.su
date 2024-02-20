@@ -1,0 +1,3 @@
+C:\Users\NobbyXP\Documents\NHS3152\NFC\pnev7642fama_NfcrdlibEx4_MIFAREClassic_Bm_Pub\drivers/fsl_clock.h:145:20:CLOCK_InitClockGeneration	8	static
+../board/clock_config.c:43:6:BOARD_InitBootClocks	8	static
+../board/clock_config.c:80:6:BOARD_BootClockRUN	16	static

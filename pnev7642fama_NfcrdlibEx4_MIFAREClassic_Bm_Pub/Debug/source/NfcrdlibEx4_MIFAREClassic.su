@@ -1,0 +1,3 @@
+../source/NfcrdlibEx4_MIFAREClassic.c:98:5:main	16	static
+../source/NfcrdlibEx4_MIFAREClassic.c:186:6:NfcrdlibEx4_MIFAREClassic	32	static
+../source/NfcrdlibEx4_MIFAREClassic.c:379:19:Ex4_NfcRdLibInit	32	static

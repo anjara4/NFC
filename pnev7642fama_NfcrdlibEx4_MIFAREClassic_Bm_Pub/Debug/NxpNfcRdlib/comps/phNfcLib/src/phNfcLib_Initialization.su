@@ -1,0 +1,8 @@
+../NxpNfcRdlib/comps/phNfcLib/src/phNfcLib_Initialization.c:229:19:phNfcLib_SetContext	16	static
+../NxpNfcRdlib/comps/phNfcLib/src/phNfcLib_Initialization.c:251:19:phNfcLib_CommonLayer_Init	32	static
+../NxpNfcRdlib/comps/phNfcLib/src/phNfcLib_Initialization.c:397:19:phNfcLib_PAL_Init	16	static
+../NxpNfcRdlib/comps/phNfcLib/src/phNfcLib_Initialization.c:513:19:phNfcLib_AL_Init	16	static
+../NxpNfcRdlib/comps/phNfcLib/src/phNfcLib_Initialization.c:676:19:phNfcLib_Init	32	static
+../NxpNfcRdlib/comps/phNfcLib/src/phNfcLib_Initialization.c:849:19:phNfcLib_DeInit	16	static
+../NxpNfcRdlib/comps/phNfcLib/src/phNfcLib_Initialization.c:877:7:phNfcLib_GetDataParams	24	static
+../NxpNfcRdlib/comps/phNfcLib/src/phNfcLib_Initialization.c:1069:7:phNfcLib_GetDataParams_Extended	24	static

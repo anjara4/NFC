@@ -1,0 +1,4 @@
+../source/phApp_Helper.c:43:6:phApp_PrintTech	16	static
+../source/phApp_Helper.c:77:6:phApp_Print_Buff	24	static
+../source/phApp_Helper.c:93:6:phApp_PrintTagInfo	24	static
+../source/phApp_Helper.c:250:6:PrintErrorInfo	16	static

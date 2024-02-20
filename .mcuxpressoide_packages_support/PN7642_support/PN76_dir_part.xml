@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chips chipVendor="NXP"
+       family="PN76"
+       vendorURL="http://www.nxp.com"
+       chipURL="https://www.nxp.com/pip/PN7642">
+   <chip name="PN7642"
+         displayName="PN7642"
+         xml_file="PN7642_internal.xml"
+         chipURL="https://www.nxp.com/pip/PN7642"/>
+</chips>

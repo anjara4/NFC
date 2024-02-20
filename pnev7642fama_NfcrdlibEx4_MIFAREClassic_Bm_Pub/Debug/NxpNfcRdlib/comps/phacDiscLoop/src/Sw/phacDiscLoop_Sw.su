@@ -1,0 +1,6 @@
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw.c:53:12:phacDiscLoop_Sw_Init	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw.c:265:12:phacDiscLoop_Sw_Run	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw.c:371:12:phacDiscLoop_Sw_SetConfig	24	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw.c:872:12:phacDiscLoop_Sw_GetConfig	32	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw.c:1135:12:phacDiscLoop_Sw_ActivateCard	16	static
+../NxpNfcRdlib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw.c:1144:12:phacDiscLoop_Sw_CfgPollSeq	24	static

@@ -1,0 +1,12 @@
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:33:12:phpalI14443p3a_Sw_Init	24	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:57:12:phpalI14443p3a_Sw_SetConfig	24	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:99:12:phpalI14443p3a_Sw_GetConfig	32	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:139:12:phpalI14443p3a_Sw_RequestA	16	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:147:12:phpalI14443p3a_Sw_WakeUpA	16	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:156:12:phpalI14443p3a_Sw_HaltA	40	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:195:12:phpalI14443p3a_Sw_Anticollision	64	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:441:12:phpalI14443p3a_Sw_Select	40	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:452:12:phpalI14443p3a_Sw_ActivateCard	48	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:710:12:phpalI14443p3a_Sw_Exchange	32	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:729:12:phpalI14443p3a_Sw_RequestAEx	48	static
+../NxpNfcRdlib/comps/phpalI14443p3a/src/Sw/phpalI14443p3a_Sw.c:814:12:phpalI14443p3a_Sw_GetSerialNo	24	static

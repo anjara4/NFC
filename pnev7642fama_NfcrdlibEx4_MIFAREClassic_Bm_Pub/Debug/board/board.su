@@ -1,0 +1,2 @@
+C:\Users\NobbyXP\Documents\NHS3152\NFC\pnev7642fama_NfcrdlibEx4_MIFAREClassic_Bm_Pub\utilities/fsl_debug_console.h:98:24:DbgConsole_Init	4	static
+../board/board.c:19:6:BOARD_InitDebugConsole	8	static

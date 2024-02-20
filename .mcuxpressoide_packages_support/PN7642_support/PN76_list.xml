@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chips chipVendor="NXP" family="PN76">
+   <chip name="PN7642" flash=""/>
+</chips>

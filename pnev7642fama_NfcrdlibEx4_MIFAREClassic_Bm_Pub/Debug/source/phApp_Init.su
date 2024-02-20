@@ -1,0 +1,2 @@
+../source/phApp_Init.c:266:12:phApp_Comp_Init	24	static
+../source/phApp_Init.c:320:12:phApp_Configure_IRQ	4	static

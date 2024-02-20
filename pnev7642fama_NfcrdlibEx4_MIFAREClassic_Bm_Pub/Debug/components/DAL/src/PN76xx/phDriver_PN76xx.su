@@ -1,0 +1,4 @@
+../components/DAL/src/PN76xx/phDriver_PN76xx.c:56:12:phDriver_TimerStart	88	static
+../components/DAL/src/PN76xx/phDriver_PN76xx.c:127:12:phDriver_TimerStop	16	static
+../components/DAL/src/PN76xx/phDriver_PN76xx.c:155:13:phDriver_TimerIsrHandler	40	static
+../components/DAL/src/PN76xx/phDriver_PN76xx.c:210:13:phDriver_TimerIsrCallBack	4	static

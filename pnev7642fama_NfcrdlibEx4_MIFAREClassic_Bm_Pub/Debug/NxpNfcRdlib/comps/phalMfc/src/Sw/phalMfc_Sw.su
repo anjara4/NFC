@@ -1,0 +1,15 @@
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:38:12:phalMfc_Sw_Init	24	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:60:12:phalMfc_Sw_Authenticate	56	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:142:12:phalMfc_Sw_Read	48	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:179:12:phalMfc_Sw_ReadValue	48	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:202:12:phalMfc_Sw_Write	48	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:240:12:phalMfc_Sw_WriteValue	48	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:257:12:phalMfc_Sw_Increment	24	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:266:12:phalMfc_Sw_Decrement	24	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:275:12:phalMfc_Sw_Transfer	16	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:287:12:phalMfc_Sw_Restore	24	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:300:12:phalMfc_Sw_IncrementTransfer	32	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:314:12:phalMfc_Sw_DecrementTransfer	32	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:328:12:phalMfc_Sw_RestoreTransfer	24	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:341:12:phalMfc_Sw_PersonalizeUid	40	static
+../NxpNfcRdlib/comps/phalMfc/src/Sw/phalMfc_Sw.c:365:12:phalMfc_Sw_GetVersion	40	static
