@@ -5,7 +5,7 @@
  * Generated linker script file for PN7642
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.9.0 [Build 2144] [2024-01-05] on 20 févr. 2024, 12:48:02
+ * MCUXpresso IDE v11.9.0 [Build 2144] [2024-01-05] on 23 févr. 2024, 15:52:48
  */
 
 INCLUDE "pnev7642fama_NfcrdlibEx4_MIFAREClassic_Bm_Pub_Debug_library.ld"

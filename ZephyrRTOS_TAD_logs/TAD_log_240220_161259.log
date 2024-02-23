@@ -1,0 +1,8 @@
+"Task Aware Debugger for GDB" version 11.9.0 (202311161535)
+Copyright 2016-2023 NXP
+==================================
+16:12:48.174 INFO: [ZephyrRTOS] .config file could not be read [C:\Users\NobbyXP\Documents\NHS3152\NFC\pnev7642fama_NfcrdlibEx4_MIFAREClassic_Bm_Pub\Debug\.config (Le fichier spécifié est introuvable)]
+16:12:48.174 INFO: [TadModel] DSF session ID 0 has started.
+16:12:53.453 INFO: [TadState] TAD state changed: DEBUG_STARTED -> DEBUG_INIT_0 (RESUMED, USER_REQUEST)
+16:12:53.488 INFO: [TadState] TAD state changed: DEBUG_INIT_0 -> DEBUG_INIT_1 (SUSPENDED, SIGNAL)
+16:12:59.673 INFO: [TadModel] DSF session ID 0 has ended.

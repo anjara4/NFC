@@ -37,6 +37,7 @@
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "board.h"
+
 /*******************************************************************************
 **   Definitions
 *******************************************************************************/
@@ -59,7 +60,9 @@ phKeyStore_Sw_KUCEntry_t           sKUCEntries[NUMBER_OF_KUCENTRIES];           
 phKeyStore_Sw_KeyVersionPair_t     sKeyVersionPairs[NUMBER_OF_KEYVERSIONPAIRS * NUMBER_OF_KEYENTRIES]; /* Sw KeyVersionPair structure */
 
 uint8_t                            bDataBuffer[DATA_BUFFER_LEN];  /* universal data buffer */
-uint8_t                            val[] = "77";
+uint8_t                            val[4];
+char input[20];
+uint8_t buffr[] = {0,0,0,0};
 
 uint8_t                            bSak;                      /* SAK  card type information */
 uint16_t                           wAtqa;                     /* ATQA card type information */
@@ -97,26 +100,19 @@ static phStatus_t Ex4_NfcRdLibInit(void);
 
 int main(void)
 {
-
     do
     {
-        phStatus_t status = PH_ERR_INTERNAL_ERROR;
-        phNfcLib_Status_t     dwStatus;
-#ifdef PH_PLATFORM_HAS_ICFRONTEND
-        phNfcLib_AppContext_t AppContext = {0};
-#endif /* PH_PLATFORM_HAS_ICFRONTEND */
+		#ifdef PH_PLATFORM_HAS_ICFRONTEND
+        	phNfcLib_AppContext_t AppContext = {0};
+		#endif /* PH_PLATFORM_HAS_ICFRONTEND */
 
-#ifndef PH_OSAL_NULLOS
-        phOsal_ThreadObj_t MfClassic;
-#endif /* PH_OSAL_NULLOS */
+		#ifndef PH_OSAL_NULLOS
+        	phOsal_ThreadObj_t MfClassic;
+		#endif /* PH_OSAL_NULLOS */
 
-
-    BOARD_InitBootPins();
-    BOARD_InitBootClocks();
-    BOARD_InitDebugConsole();
-
-
-	
+        BOARD_InitBootPins();
+        BOARD_InitBootClocks();
+        BOARD_InitDebugConsole();
 
         /* Perform OSAL Initialization. */
         (void)phOsal_Init();
@@ -124,9 +120,9 @@ int main(void)
         /* Print Example application name */
         DEBUG_PRINTF("\n *** MIFARE Classic Example *** \n");
 
+
 #ifdef PH_PLATFORM_HAS_ICFRONTEND
-        status = phbalReg_Init(&sBalParams, sizeof(phbalReg_Type_t));
-        CHECK_STATUS(status);
+        phbalReg_Init(&sBalParams, sizeof(phbalReg_Type_t));
 
         AppContext.pBalDataparams = &sBalParams;
         dwStatus = phNfcLib_SetContext(&AppContext);
@@ -134,9 +130,7 @@ int main(void)
 #endif /* PH_PLATFORM_HAS_ICFRONTEND */
 
         /* Initialize library */
-        dwStatus = phNfcLib_Init();
-        CHECK_NFCLIB_STATUS(dwStatus);
-        if(dwStatus != PH_NFCLIB_STATUS_SUCCESS) break;
+        phNfcLib_Init();
 
         /* Set the generic pointer */
         pHal = phNfcLib_GetDataParams(PH_COMP_HAL);
@@ -145,14 +139,9 @@ int main(void)
         psalMFC = phNfcLib_GetDataParams(PH_COMP_AL_MFC);
 
         /* Initialize other components that are not initialized by NFCLIB and configure Discovery Loop. */
-        status = phApp_Comp_Init(pDiscLoop);
-        CHECK_STATUS(status);
-        if(status != PH_ERR_SUCCESS) break;
+        phApp_Comp_Init(pDiscLoop);
 
-        /* Perform Platform Init */
-        status = phApp_Configure_IRQ();
-        CHECK_STATUS(status);
-        if(status != PH_ERR_SUCCESS) break;
+        phApp_Configure_IRQ();
 
 #ifndef PH_OSAL_NULLOS
 
@@ -185,7 +174,6 @@ int main(void)
  **********************************************************************************************/
 void NfcrdlibEx4_MIFAREClassic(void *pParams)
 {
-    phStatus_t  status = 0;
     uint16_t    wTagsDetected = 0;
     uint8_t     bUid[PHAC_DISCLOOP_I3P3A_MAX_UID_LENGTH];
     uint8_t     bUidSize;
@@ -195,179 +183,46 @@ void NfcrdlibEx4_MIFAREClassic(void *pParams)
      * */
     phOsal_ThreadSecureStack( 512 );
 
-    /* Initialize components required by this example. */
-    status = Ex4_NfcRdLibInit();
 
     while(1)    /* Continuous loop */
     {
-        DEBUG_PRINTF("\nReady to detect\n");
+    	wTagsDetected = 0;
+    	Ex4_NfcRdLibInit();
 
-        do
-        {
-            /* Field OFF */
-            status = phhalHw_FieldOff(pHal);
-            CHECK_STATUS(status);
+        /* Field OFF */
+        phhalHw_FieldOff(pHal);
 
-            status = phhalHw_Wait(pDiscLoop->pHalDataParams,PHHAL_HW_TIME_MICROSECONDS, 5100);
-            CHECK_STATUS(status);
+        phhalHw_Wait(pDiscLoop->pHalDataParams,PHHAL_HW_TIME_MICROSECONDS, 5100);
 
-            /* Configure Discovery loop for Poll Mode */
-            status = phacDiscLoop_SetConfig(pDiscLoop, PHAC_DISCLOOP_CONFIG_NEXT_POLL_STATE, PHAC_DISCLOOP_POLL_STATE_DETECTION);
-            CHECK_STATUS(status);
+        phacDiscLoop_SetConfig(pDiscLoop, PHAC_DISCLOOP_CONFIG_NEXT_POLL_STATE, PHAC_DISCLOOP_POLL_STATE_DETECTION);
 
-            /* Run Discovery loop */
-            status = phacDiscLoop_Run(pDiscLoop, PHAC_DISCLOOP_ENTRY_POINT_POLL);
+        phacDiscLoop_Run(pDiscLoop, PHAC_DISCLOOP_ENTRY_POINT_POLL);
 
-        }while((status & PH_ERR_MASK) != PHAC_DISCLOOP_DEVICE_ACTIVATED); /* Exit on Card detection */
+        printf("Enter the case (1, 2 or 3): ");
+        if (fgets(input, sizeof(input), stdin) != NULL) {
+        	 // Input successfully read into 'input'
+             // Now parse the input and convert to integers
+             sscanf(input, "%d", &buffr[0]);
 
-        /* Card detected */
-        /* Get the tag types detected info */
-        status = phacDiscLoop_GetConfig(pDiscLoop, PHAC_DISCLOOP_CONFIG_TECH_DETECTED, &wTagsDetected);
+             // Now you can use the 'buffr' array
+             printf("You entered: %d\n", buffr[0]);
+         } else {
+        	 // Error reading input
+        	 printf("Error reading input.\n");
+         }
 
-        /* Check for Status */
-        if ((status & PH_ERR_MASK) == PH_ERR_SUCCESS)
-        {
-            /* Check for Type A tag detection */
-            if (PHAC_DISCLOOP_CHECK_ANDMASK(wTagsDetected, PHAC_DISCLOOP_POS_BIT_MASK_A))
-            {
-                /* Check for MIFARE Classic */
-                //if (0x08 == (pDiscLoop->sTypeATargetInfo.aTypeA_I3P3[0].aSak & 0x08))
-                //{
-                    do
-                    {
-                        /* Print UID */
-                        DEBUG_PRINTF ("\nUID: ");
-                        phApp_Print_Buff(pDiscLoop->sTypeATargetInfo.aTypeA_I3P3[0].aUid,
-                                pDiscLoop->sTypeATargetInfo.aTypeA_I3P3[0].bUidSize);
-
-                        /* Print ATQA  and SAK */
-                        DEBUG_PRINTF("\nATQA:");
-                        phApp_Print_Buff(pDiscLoop->sTypeATargetInfo.aTypeA_I3P3[0].aAtqa, 2);
-                        DEBUG_PRINTF ("\nSAK: 0x%x",pDiscLoop->sTypeATargetInfo.aTypeA_I3P3[0].aSak);
-
-                        /* Print Product type */
-                        DEBUG_PRINTF("\nProduct: MIFARE Classic \n");
-
-                        bUidSize = pDiscLoop->sTypeATargetInfo.aTypeA_I3P3[0].bUidSize;
-                        memcpy(bUid, pDiscLoop->sTypeATargetInfo.aTypeA_I3P3[0].aUid, bUidSize);
-
-                        /* Authenticate with the Key
-                         * We can authenticate at any block of a sector and we will get the access to all blocks of the same sector
-                         * For example authenticating at block 5, we will get the access to blocks 4, 5, 6 and 7.
-                         */
-                        /* Send authentication for block 6 */
-
-                        //status = phalMfc_Authenticate(psalMFC, 6, PHHAL_HW_MFC_KEYA, 1, 0, bUid, bUidSize);
-
-                        /* Check for Status */
-                        /*if ((status & PH_ERR_MASK) != PH_ERR_SUCCESS)
-                        {
-                            // Print Error info
-                            DEBUG_PRINTF("\nAuthentication Failed!!!");
-                            DEBUG_PRINTF("\nPlease correct the used key");
-                            DEBUG_PRINTF("\nExecution aborted!!!\n");
-                            break;
-                        }
-
-                        DEBUG_PRINTF("\nAuthentication Successful");*/
-
-                        /* Empty the bDataBuffer */
-                        memset(bDataBuffer, '\0', DATA_BUFFER_LEN);
-
-                        DEBUG_PRINTF("\nRead data from Block 4");
-
-                        /* Read data from block 4 */
-                        status = phalMfc_Read(psalMFC, 4, bDataBuffer);
-
-                        /* Check for Status */
-                        if (status != PH_ERR_SUCCESS)
-                        {
-                            /* Print Error info */
-                            DEBUG_PRINTF("\nRead operation failed!!!\n");
-                            DEBUG_PRINTF("\nExecution aborted!!!\n\n");
-                            break; /* Break from the loop*/
-                        }
-
-                        DEBUG_PRINTF("\nRead Success");
-                        DEBUG_PRINTF("\nThe content of Block 4 is:\n");
-
-                        phApp_Print_Buff(&bDataBuffer[0], MFC_BLOCK_DATA_SIZE);
-                        DEBUG_PRINTF("\n\n --- End of Read Operation --- \n");
-
-                        DEBUG_PRINTF("\nWrite data to Block 4");
-
-                        /* Write data to block 4 */
-                        //status = phalMfc_Write(psalMFC, 5, bDataBuffer);
-                        status = phalMfc_Write(psalMFC, 5, val);
-
-                        /* Check for Status */
-                        if (status != PH_ERR_SUCCESS)
-                        {
-                            /* Print Error info */
-                            DEBUG_PRINTF("\nWrite operation failed!!!\n");
-                            DEBUG_PRINTF("\nExecution aborted!!!\n");
-                            break; /* Break from the loop*/
-                        }
-
-                        DEBUG_PRINTF("\nWrite Success");
-                        DEBUG_PRINTF("\n\n --- End of Write Operation --- ");
+         phalMfc_Write(psalMFC, 4, buffr);
 
 
-                        /* Read data from block 4 */
-                                                status = phalMfc_Read(psalMFC, 4, bDataBuffer);
+         phalMfc_Read(psalMFC, 4, bDataBuffer);
 
-                                                /* Check for Status */
-                                                if (status != PH_ERR_SUCCESS)
-                                                {
-                                                    /* Print Error info */
-                                                    DEBUG_PRINTF("\nRead operation failed!!!\n");
-                                                    DEBUG_PRINTF("\nExecution aborted!!!\n\n");
-                                                    break; /* Break from the loop*/
-                                                }
+         DEBUG_PRINTF("\nThe content of Block 4 is:\n");
 
-                                                DEBUG_PRINTF("\nRead Success");
-                                                DEBUG_PRINTF("\nThe content of Block 4 is:\n");
+         phApp_Print_Buff(&bDataBuffer[0], MFC_BLOCK_DATA_SIZE);
+         DEBUG_PRINTF("\n\n --- End of Read Operation --- \n");
 
-                                                phApp_Print_Buff(&bDataBuffer[0], MFC_BLOCK_DATA_SIZE);
-                                                DEBUG_PRINTF("\n\n --- End of Read Operation --- \n");
-
-
-                        /* End of example */
-                        DEBUG_PRINTF("\n\n --- End of Example --- \n\n");
-
-                    }while(0);
-
-                    DEBUG_PRINTF("\nPlease Remove the Card\n\n");
-
-                    /* Field RESET */
-                    status = phhalHw_FieldReset(pHal);
-                    CHECK_STATUS(status);
-
-                    /* Make sure that example application is not detecting the same card continuously */
-                    do
-                    {
-                        /* Send WakeUpA */
-                        status = phpalI14443p3a_WakeUpA(pDiscLoop->pPal1443p3aDataParams,
-                                                        pDiscLoop->sTypeATargetInfo.aTypeA_I3P3[0].aAtqa);
-
-                        /* Check for Status */
-                        if (status != PH_ERR_SUCCESS)
-                        {
-                            break; /* Card Removed, break from the loop */
-                        }
-
-                        /* Send HaltA */
-                        status = phpalI14443p3a_HaltA(pDiscLoop->pPal1443p3aDataParams);
-                        CHECK_STATUS(status);
-
-                        /* Delay - 5 milli seconds*/
-                        status = phhalHw_Wait(pDiscLoop->pHalDataParams, PHHAL_HW_TIME_MILLISECONDS, 5);
-                        CHECK_STATUS(status);
-
-                    }while(1);
-                //}
-            }
-        }
+         phhalHw_FieldOn(pHal);
+         phhalHw_Wait(pDiscLoop->pHalDataParams,PHHAL_HW_TIME_MICROSECONDS, 5100);
     }
 }
 
