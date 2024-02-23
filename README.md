@@ -39,6 +39,8 @@ The problem here:
 2) There is too much debug and step over(step 5 of the program setup) and steps before the programm can read and write
 
 Task:
-1) Interaction with the console
+1) Interaction with the console (Done)
 2) Structuration du code (remove all unnecessary information)
-3) Run the code that turns the light with different configuration
+3) Run the code that turns the light with different configuration (Done)
+4) Implementation GUI
+5) Set the intenisty of the NFC Field
